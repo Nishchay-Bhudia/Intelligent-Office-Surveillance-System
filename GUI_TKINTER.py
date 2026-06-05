@@ -33,6 +33,36 @@ class ChairGuardianApp(ctk.CTk):
     self.video_label.pack(expand=True)
 
 
+    def setup_ui(self):
+    self.sidebar = ctk.CTkFrame(self, width=250)
+    self.sidebar.pack(side="left", fill="y")
+
+    self.arm_btn = ctk.CTkButton(
+        self.sidebar,
+        text="ARM SYSTEM",
+        fg_color="green",
+        command=self.toggle_arm
+    )
+    self.arm_btn.pack(pady=10)
+
+    self.status_label = ctk.CTkLabel(
+        self.sidebar,
+        text="Status: UNARMED",
+        text_color="gray"
+    )
+    self.status_label.pack(pady=10)
+
+    self.main_frame = ctk.CTkFrame(self)
+    self.main_frame.pack(side="right", expand=True, fill="both")
+
+    self.video_label = ctk.CTkLabel(self.main_frame, text="")
+    self.video_label.pack(expand=True)
+
+
+def toggle_arm(self):
+    self.armed = not self.armed
+
+
 if __name__ == "__main__":
     app = ChairGuardianApp()
     app.mainloop()
