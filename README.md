@@ -313,6 +313,116 @@ A communication mechanism between components will allow information to be exchan
 ---
 
 
+## 1.5 Hardware and Software Requirements
+
+The following hardware and software requirements have been identified following stakeholder consultation and research.
+
+
+
+### Hardware Requirements
+
+
+
+| Component | Requirement |
+
+| :--- | :--- |
+
+| **Processor** | Intel i5 or equivalent |
+
+| **Memory** | 8GB RAM minimum |
+
+| **Camera** | USB Webcam |
+
+| **Camera Resolution** | 720p |
+
+| **Storage** | 5GB available space minimum |
+
+| **Display** | 1080p monitor recommended |
+
+| **Operating System** | Windows 10 or Windows 11 |
+
+
+
+#### Hardware Justification
+
+An Intel i5 processor and 8GB of RAM provide sufficient performance for real time frame processing and graphical interface operation. A USB webcam is inexpensive and readily available, making the solution cost effective. 720p resolution provides a suitable balance between image quality and processing performance.
+
+
+
+### Software Requirements
+
+
+
+| Software | Purpose |
+
+| :--- | :--- |
+
+| **Python** | Main programming language |
+
+| **OpenCV** | Motion detection and image processing |
+
+| **Tkinter** | Graphical user interface |
+
+| **Pillow** | Image handling |
+
+| **SQLite3** | Database management |
+
+| **Windows OS** | Deployment platform |
+
+
+
+#### Software Justification
+
+Python was selected due to its extensive library support and ease of development. OpenCV provides efficient image processing capabilities and is widely used within machine vision applications. Tkinter is included with Python and allows development of a professional graphical user interface without additional software. SQLite provides lightweight database functionality while requiring no external server installation.
+
+
+
+---
+
+
+
+## 1.6 Success Criteria
+
+The success of the project will be measured against the following criteria.
+
+
+
+* **SC1:** The system shall provide a live webcam feed with a refresh rate suitable for real time monitoring.
+
+* **SC2:** The user shall be able to arm the monitoring system using a single button press.
+
+* **SC3:** The user shall be able to disarm the monitoring system using a single button press.
+
+* **SC4:** The system shall detect movement within the monitored area with an accuracy of at least 97% under normal operating conditions.
+
+* **SC5:** The system shall capture a screenshot within 2 seconds of motion being detected.
+
+* **SC6:** The system shall generate a unique event ID for every detected event.
+
+* **SC7:** The system shall automatically record the date and time of each event.
+
+* **SC8:** The system shall save captured screenshots locally without data loss.
+
+* **SC9:** The system shall display all captured events within a gallery interface.
+
+* **SC10:** The system shall allow users to create and edit ignored detection regions.
+
+* **SC11:** The system shall provide three selectable sensitivity levels ( Low, Medium and High.)
+
+* **SC12:** The system shall play an audible alert whenever movement is detected.
+
+* **SC13:** The graphical user interface shall maintain a consistent dark theme across all screens.
+
+* **SC14:** The system shall remain responsive while monitoring and processing camera frames simultaneously.
+
+* **SC15:** The system shall automatically delete evidence records older than a user-defined retention period to prevent excessive storage usage.
+
+
+
+--- 
+
+
+
 
 
 
