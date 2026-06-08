@@ -55,7 +55,7 @@ def capture_image(cap, filename):
         x2, y2 = 950, 300
         x3, y3 = 1280, 350
         x4, y4 = 1280, 550
-        draw.polygon([(x1, y1), (x2, y2), (x4, y4), (x3, y3)], fill="black")
+#        draw.polygon([(x1, y1), (x2, y2), (x4, y4), (x3, y3)], fill="black")
         tempimg.save(filename)
         return True
     else:
