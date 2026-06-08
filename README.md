@@ -120,4 +120,200 @@ Requirements include:
 ---
 
 
+## 1.4 Computational Methods Justification
+
+To develop an effective solution, several computational thinking techniques will be applied throughout the project. These methods will help simplify the problem and ensure that the final system is efficient, maintainable and reliable.
+
+
+
+### 1.4.1 Abstraction
+
+Abstraction involves removing unnecessary detail and focusing only on information that is relevant to solving the problem.
+
+
+
+Within this project, the webcam captures a large amount of visual information. However, not all of this information is required. The system only needs to determine whether movement has occurred within monitored areas of the office.
+
+
+
+For example, colours, object names and background details are not required. Instead, the system will focus on changes between consecutive frames. By abstracting the image into regions of movement and non movement, the amount of processing required is reduced.
+
+
+
+Another example of abstraction is the use of ignored regions. Areas such as windows may produce movement due to lighting changes, weather conditions or people walking outside. These details are irrelevant to the problem and can therefore be excluded from analysis. Using abstraction will improve efficiency and reduce false detections.
+
+
+
+---
+
+
+
+### 1.4.2 Decomposition
+
+Decomposition involves breaking a large problem into smaller, manageable components. The Intelligent Office Surveillance System can be divided into several subsystems:
+
+
+
+* **User Interface Module**
+
+  * Responsible for:
+
+    * Displaying the live camera feed.
+
+    * Providing arm and disarm controls.
+
+    * Displaying event galleries.
+
+    * Showing notifications and alerts.
+
+* **Motion Detection Module**
+
+  * Responsible for:
+
+    * Processing webcam frames.
+
+    * Comparing images.
+
+    * Detecting movement.
+
+    * Applying sensitivity settings.
+
+* **Region Management Module**
+
+  * Responsible for:
+
+    * Creating ignored areas.
+
+    * Storing ignored region coordinates.
+
+    * Applying masks during motion detection.
+
+* **Event Capture Module**
+
+  * Responsible for:
+
+    * Capturing screenshots.
+
+    * Generating event IDs.
+
+    * Creating timestamps.
+
+* **Database Module**
+
+  * Responsible for:
+
+    * Storing event information.
+
+    * Retrieving gallery data.
+
+    * Managing deletion of old records.
+
+* **Alert Module**
+
+  * Responsible for:
+
+    * Playing sounds.
+
+    * Displaying warning messages.
+
+    * Notifying the user when movement occurs.
+
+
+
+By decomposing the project into smaller modules, each component can be developed, tested and maintained independently.
+
+
+
+---
+
+
+
+### 1.4.3 Visualisation
+
+Visualisation is important during both the development and operation of the system.
+
+
+
+The graphical user interface provides visual feedback to users, allowing them to monitor activity easily. Rather than viewing raw data, users will be able to see screenshots, timestamps and event information presented in a clear format. Visualisation will also be used during development when designing the layout of the user interface and planning interactions between components.
+
+
+
+The live camera feed acts as a visual representation of the monitored environment, allowing users to quickly determine whether the system is functioning correctly. Using visualisation improves usability and reduces the learning curve for non-technical users.
+
+
+
+---
+
+
+
+### 1.4.4 Heuristics
+
+Heuristics are practical rules or techniques used to make decisions quickly without guaranteeing a perfect result. Motion detection within this project relies on heuristic based decision making.
+
+
+
+For example:
+
+* If the amount of changed pixels exceeds a threshold, motion is assumed to have occurred.
+
+* If movement occurs within an ignored region, it is discarded.
+
+* If movement exceeds the sensitivity threshold, evidence is captured.
+
+
+
+The system will provide three sensitivity levels:
+
+* **Low:** Requires a large amount of movement before detection occurs.
+
+* **Medium:** Balanced detection suitable for most environments.
+
+* **High:** Requires only small amounts of movement before detection occurs.
+
+
+
+These heuristics allow the system to respond efficiently while reducing unnecessary processing.
+
+
+
+---
+
+
+
+### 1.4.5 Pipelining / Concurrent Data Processing
+
+The system performs several tasks simultaneously. While the webcam feed is being processed for motion detection, the graphical user interface must remain responsive. If all processing occurred sequentially  the interface could freeze while analysing frames.
+
+
+
+To overcome this issue, concurrent processing techniques will be used.
+
+
+
+* **One process will handle:**
+
+  * Webcam frame acquisition.
+
+  * Motion analysis.
+
+* **Another process will handle:**
+
+  * User interface updates.
+
+  * Button interactions.
+
+  * Gallery management.
+
+
+
+A communication mechanism between components will allow information to be exchanged efficiently. This approach improves performance and provides a smoother user experience.
+
+
+
+---
+
+
+
+
+
 
