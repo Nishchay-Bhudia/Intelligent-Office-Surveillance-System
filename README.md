@@ -355,7 +355,6 @@ An Intel i5 processor and 8GB of RAM provide sufficient performance for real tim
 
 | Software | Purpose |
 
-| :--- | :--- |
 
 | **Python** | Main programming language |
 
