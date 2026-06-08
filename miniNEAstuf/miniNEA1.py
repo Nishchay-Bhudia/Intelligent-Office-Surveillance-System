@@ -16,7 +16,7 @@ SAVE_DIR = os.path.join(script_dir, "saved")
 EVENTS_DIR = os.path.join(script_dir, "events")
 EVENTS2_DIR = os.path.join(script_dir, "events2")
 MAX_TEMP_IMAGES = 3000
-SAVE_DURATION = 300 # 300 fiels saved at 0.1img/s = 30s of 10fps footage, returns to 1fps during inactivity
+SAVE_DURATION = 60 # 300 fiels saved at 0.1img/s = 30s of 10fps footage, returns to 1fps during inactivity
 THRESHOLD = 15.0    #will inc or dec when testing diff door open/close
 
 
@@ -26,7 +26,7 @@ os.makedirs(EVENTS_DIR, exist_ok=True)
 os.makedirs(EVENTS2_DIR, exist_ok=True)
 
 def init_camera(): #fixes issue where camera was reopened each time image was taken, which didnt meet the "change sensitivity req)"
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(0, cv2.CAP_MSMF)
     if not cap.isOpened():
         print("Error: Could not open webcam.")
         return None
