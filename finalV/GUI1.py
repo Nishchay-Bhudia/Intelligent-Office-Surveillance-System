@@ -10,6 +10,7 @@ import subprocess
 import sys
 import systemArmed
 from systemArmed import bundle_motion_event, generate_video_from_event, main
+from clearMedia import clear_all_media1
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -21,6 +22,7 @@ EVENTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "events")
 EVENTS2_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "events2")
 TEMP_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "temporary")
 SAVE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "saved")
+# per-instance camera index is stored on the app instance as `self.camToUse`
 
 
 class ChairGuardianApp(ctk.CTk):
@@ -34,7 +36,8 @@ class ChairGuardianApp(ctk.CTk):
         self.alarm_active = False
         self.detection_thread = None
 
-        self.cap = cv2.VideoCapture(0)
+        self.camToUse = 0
+        self.cap = cv2.VideoCapture(self.camToUse)
 
         self.current_frame = None
         self.events = []
@@ -95,6 +98,23 @@ class ChairGuardianApp(ctk.CTk):
         )
         self.clear_media_btn.pack(pady=10)
 
+        self.cam_toggle_btn = ctk.CTkButton(
+            self.sidebar,
+            text="toggle camera",
+            fg_color="grey",
+            command=self.toggle_cam
+        )
+        self.cam_toggle_btn.pack(pady=10)
+        
+        self.cam_label = ctk.CTkLabel(
+            self.sidebar,
+            text=f"Camera in use: {self.camToUse}",
+            text_color="grey",
+            font=("Arial", 10),
+            justify="center"
+        )
+        self.cam_label.pack(pady=10)
+
         self.main_frame = ctk.CTkFrame(self)
         self.main_frame.pack(side="right", expand=True, fill="both")
 
@@ -122,6 +142,8 @@ class ChairGuardianApp(ctk.CTk):
             systemArmed.SAVE_DIR = SAVE_DIR
             systemArmed.EVENTS_DIR = EVENTS_DIR
             systemArmed.EVENTS2_DIR = EVENTS2_DIR
+            # Pass selected camera index to systemArmed before starting
+            systemArmed.camToUse = self.camToUse
             systemArmed.keep_running = True
             self.detection_thread = threading.Thread(target=main, daemon=False)
             self.detection_thread.start()
@@ -144,13 +166,28 @@ class ChairGuardianApp(ctk.CTk):
             "Are you sure you want to delete all saved media?\n\nOnly proceed if the chair is NOT stolen."
         )
         if response:
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            clear_script = os.path.join(script_dir, "clearMedia.py")
             try:
-                subprocess.run([sys.executable, clear_script], check=True)
+                clear_all_media1()
                 messagebox.showinfo("Success", "All media cleared successfully.")
             except Exception as e:
                 messagebox.showerror("Error", f"Failed to clear media: {str(e)}")
+
+    def toggle_cam(self):
+        # cycle camera index and update label
+        self.camToUse = (self.camToUse + 1) % 3
+        self.cam_label.configure(text=f"Camera in use: {self.camToUse}")
+        try:
+            if hasattr(self, "cap") and self.cap is not None:
+                try:
+                    self.cap.release()
+                except Exception:
+                    pass
+        finally:
+            self.cap = cv2.VideoCapture(self.camToUse)
+        try:
+            systemArmed.camToUse = self.camToUse
+        except Exception:
+            pass
 
 if __name__ == "__main__":
     os.makedirs(EVENTS_DIR, exist_ok=True)

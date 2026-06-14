@@ -21,9 +21,10 @@ MAX_TEMP_IMAGES = 3000
 SAVE_DURATION = 60 # 300 fiels saved at 0.1img/s = 30s of 10fps footage, returns to 1fps during inactivity
 THRESHOLD = 15.0    #will inc or dec when testing diff door open/close
 keep_running = True  # Flag to control main loop
+camToUse = 0
 
-def init_camera(): #fixes issue where camera was reopened each time image was taken, which didnt meet the "change sensitivity req)"
-    cap = cv2.VideoCapture(0, cv2.CAP_MSMF)
+def init_camera(camToUse): #fixes issue where camera was reopened each time image was taken, which didnt meet the "change sensitivity req)"
+    cap = cv2.VideoCapture(camToUse, cv2.CAP_MSMF)
     if not cap.isOpened():
         print("Error: Could not open webcam.")
         return None
@@ -144,7 +145,7 @@ def main():
     saveCounter = 0
     event_active = False
 
-    cap = init_camera()
+    cap = init_camera(camToUse)
     if cap is None:
         return
 
