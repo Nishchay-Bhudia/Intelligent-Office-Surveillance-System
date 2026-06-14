@@ -94,7 +94,7 @@ def generate_video_from_event(image_folder):
         return
 
     height, width = frame.shape[:2]
-    event_name = os.path.basename(image_folder.rstrip("\\/"))
+    event_name = os.path.basename(image_folder.rstrip("\\/")) #https://docs.python.org/3.13/library/os.path.html
     video_path = os.path.join(EVENTS2_DIR, f"{event_name}.avi")
     video = cv2.VideoWriter(video_path, cv2.VideoWriter_fourcc(*'DIVX'), 2, (width, height))#2fps
 
