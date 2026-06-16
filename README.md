@@ -1,5 +1,6 @@
 # Intelligent Office Surveillance System
-
+![thumbnail](https://stardance.hackclub.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NDk4OTAsInB1ciI6ImJsb2JfaWQifX0=--7cd2c0c71b34ddd08418fda8d8ad445c65dfcd0a/Gemini_Generated_Image_zfzchwzfzchwzfzc.png)
+  Thumbnail was made using ai!
 
 ## Table of Contents
 
