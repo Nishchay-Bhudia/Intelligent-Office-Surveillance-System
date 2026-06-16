@@ -420,6 +420,17 @@ The success of the project will be measured against the following criteria.
 
 --- 
 
+# 2. Design
+Each person works on either frontend (GUI) or backend (logic).
+## 2.1 main files
+Will include 3 main files
+* **systemArmed.py**
+  systemArmed.py will start the camera loop, detect motion and change freq of images saved accordingly. All images taken will go to temp folder, while any captured in motion will go to saved. they will move to their own event folders from saved, where a video will be formed. 
+* **clearMedia.py**
+  this will be run at user request, to clear any existing media if chair was not stolen.
+* **GUI1.py**
+  This will call functions from the other 2 scripts upon button press. system armed button will toggle motion detection/image capture, clear media will call respectively, while a final toggle cam button will ensure that if user has alternate camera they can select right one. #TODO: implement preview in GUI (logic added) to ensure user knows what camera is in use
+
 
 
 
