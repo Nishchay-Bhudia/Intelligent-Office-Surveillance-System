@@ -431,6 +431,8 @@ Will include 3 main files
   this will be run at user request, to clear any existing media if chair was not stolen.
 * **GUI1.py**
   This will call functions from the other 2 scripts upon button press. system armed button will toggle motion detection/image capture, clear media will call respectively, while a final toggle cam button will ensure that if user has alternate camera they can select right one. #TODO: implement preview in GUI (logic added) to ensure user knows what camera is in use
+* **v0.2.0 exe file**
+  this is everything bundled into a single .exe for simplicity for user
 
 
 
