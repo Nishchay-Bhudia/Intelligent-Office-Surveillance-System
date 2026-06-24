@@ -434,6 +434,16 @@ Will include 3 main files
 * **v0.2.0 exe file**
   this is everything bundled into a single .exe for simplicity for user
 
+<img width="1319" height="681" alt="image" src="https://github.com/user-attachments/assets/bad7df1a-d4b4-4a7d-986d-f9f117199d96" />
+<img width="884" height="634" alt="image" src="https://github.com/user-attachments/assets/83c0f542-d659-4e7d-9e10-8c8516e62394" />
+<img width="930" height="418" alt="image" src="https://github.com/user-attachments/assets/7d171852-88a5-40e9-8f8b-cedc3872f328" />
+<img width="939" height="471" alt="image" src="https://github.com/user-attachments/assets/feef9753-dee6-4ba7-a374-08aa0e76fef0" />
+
+
+
+
+
+
 
 
 
