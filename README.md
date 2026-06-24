@@ -68,7 +68,7 @@ The system will:
 * Allow motion sensitivity to be adjusted.
 * Allow users to define ignored regions of the image.
 * Play an alert sound when movement occurs.
-* Store event information using SQLite.
+* ~~Store event information using SQLite.~~
 
 #### Boundaries
 * The system will only operate on a Windows PC with a connected webcam. 
@@ -365,7 +365,7 @@ An Intel i5 processor and 8GB of RAM provide sufficient performance for real tim
 
 | **Pillow** | Image handling |
 
-| **SQLite3** | Database management |
+~~| **SQLite3** | Database management |~~
 
 | **Windows OS** | Deployment platform |
 
@@ -373,7 +373,7 @@ An Intel i5 processor and 8GB of RAM provide sufficient performance for real tim
 
 #### Software Justification
 
-Python was selected due to its extensive library support and ease of development. OpenCV provides efficient image processing capabilities and is widely used within machine vision applications. Tkinter is included with Python and allows development of a professional graphical user interface without additional software. SQLite provides lightweight database functionality while requiring no external server installation.
+Python was selected due to its extensive library support and ease of development. OpenCV provides efficient image processing capabilities and is widely used within machine vision applications. Tkinter is included with Python and allows development of a professional graphical user interface without additional software. ~~SQLite provides lightweight database functionality while requiring no external server installation.~~
 
 
 
