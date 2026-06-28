@@ -1,5 +1,6 @@
 # Intelligent Office Surveillance System
-
+![thumbnail](https://stardance.hackclub.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsiZGF0YSI6NDk4OTAsInB1ciI6ImJsb2JfaWQifX0=--7cd2c0c71b34ddd08418fda8d8ad445c65dfcd0a/Gemini_Generated_Image_zfzchwzfzchwzfzc.png)
+  Thumbnail was made using ai!
 
 ## Table of Contents
 
@@ -67,7 +68,7 @@ The system will:
 * Allow motion sensitivity to be adjusted.
 * Allow users to define ignored regions of the image.
 * Play an alert sound when movement occurs.
-* Store event information using SQLite.
+* ~~Store event information using SQLite.~~
 
 #### Boundaries
 * The system will only operate on a Windows PC with a connected webcam. 
@@ -364,7 +365,7 @@ An Intel i5 processor and 8GB of RAM provide sufficient performance for real tim
 
 | **Pillow** | Image handling |
 
-| **SQLite3** | Database management |
+~~| **SQLite3** | Database management |~~
 
 | **Windows OS** | Deployment platform |
 
@@ -372,7 +373,7 @@ An Intel i5 processor and 8GB of RAM provide sufficient performance for real tim
 
 #### Software Justification
 
-Python was selected due to its extensive library support and ease of development. OpenCV provides efficient image processing capabilities and is widely used within machine vision applications. Tkinter is included with Python and allows development of a professional graphical user interface without additional software. SQLite provides lightweight database functionality while requiring no external server installation.
+Python was selected due to its extensive library support and ease of development. OpenCV provides efficient image processing capabilities and is widely used within machine vision applications. Tkinter is included with Python and allows development of a professional graphical user interface without additional software. ~~SQLite provides lightweight database functionality while requiring no external server installation.~~
 
 
 
@@ -419,6 +420,29 @@ The success of the project will be measured against the following criteria.
 
 
 --- 
+
+# 2. Design
+Each person works on either frontend (GUI) or backend (logic).
+## 2.1 main files
+Will include 3 main files
+* **systemArmed.py**
+  systemArmed.py will start the camera loop, detect motion and change freq of images saved accordingly. All images taken will go to temp folder, while any captured in motion will go to saved. they will move to their own event folders from saved, where a video will be formed. 
+* **clearMedia.py**
+  this will be run at user request, to clear any existing media if chair was not stolen.
+* **GUI1.py**
+  This will call functions from the other 2 scripts upon button press. system armed button will toggle motion detection/image capture, clear media will call respectively, while a final toggle cam button will ensure that if user has alternate camera they can select right one. #TODO: implement preview in GUI (logic added) to ensure user knows what camera is in use
+* **v0.2.0 exe file**
+  this is everything bundled into a single .exe for simplicity for user
+
+<img width="1319" height="681" alt="image" src="https://github.com/user-attachments/assets/bad7df1a-d4b4-4a7d-986d-f9f117199d96" />
+<img width="884" height="634" alt="image" src="https://github.com/user-attachments/assets/83c0f542-d659-4e7d-9e10-8c8516e62394" />
+<img width="930" height="418" alt="image" src="https://github.com/user-attachments/assets/7d171852-88a5-40e9-8f8b-cedc3872f328" />
+<img width="939" height="471" alt="image" src="https://github.com/user-attachments/assets/feef9753-dee6-4ba7-a374-08aa0e76fef0" />
+
+
+
+
+
 
 
 

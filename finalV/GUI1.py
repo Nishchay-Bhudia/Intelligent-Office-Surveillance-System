@@ -22,7 +22,7 @@ EVENTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "events")
 EVENTS2_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "events2")
 TEMP_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "temporary")
 SAVE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "saved")
-# per-instance camera index is stored on the app instance as `self.camToUse`
+# per-instance camera index is stored on the app instance as 'self.camToUse'
 
 
 class ChairGuardianApp(ctk.CTk):
